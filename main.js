@@ -14,7 +14,6 @@
 // console.log(document.links);
 // console.log(document.images);
 
-
 // SELECTORS
 
 // GETELEMENTBYID
