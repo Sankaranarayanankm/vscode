@@ -35,4 +35,17 @@ headerTitle.innerHTML='<h1>how good</h1>';
 // styles 
 
 // console.log(header)
-header.style.borderBottom='solid 3px black'
+// header.style.borderBottom='solid 3px black'
+
+// getElementsByClassName
+
+let items=document.getElementsByClassName("list-group-item");
+console.log(items);
+console.log(items[1]);
+items[1].textContent="Hello world";
+items[2].style.backgroundColor="yellow";
+items[0].style.backgroundColor="#f4f4f4";
+
+for(let i=0;i<items.length;i++){
+    items[i].style.backgroundColor="blue"
+}
