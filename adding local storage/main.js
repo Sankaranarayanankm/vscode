@@ -55,7 +55,11 @@ function removeItem(e){
     if(e.target.classList.contains("delete")){
         let li=e.target.parentElement;
         itemList.removeChild(li);
-        localStorage.clear();
+
+        // removing item from local storage
+        let itemName = li.childNodes[0].textContent;
+        // console.log(itemName);
+        localStorage.removeItem(itemName);
     }
 }
    
