@@ -1,24 +1,37 @@
+let form =document.getElementById('form');
+let itemList=document.getElementById('items');
 
-// getting input value
+let li =document.createElement('li');
+li.className="list-group-item"
 
-function getValue(event){
-    event.preventDefault();
-   let nameInput=document.getElementById('name').value;
-   let emailInput=document.getElementById('email').value;
+form.addEventListener("submit" ,getValue);
+ function getValue(e) {
+    e.preventDefault();
+    // adding li tag
+
+
+
+    let name=document.getElementById('name').value;
+    let email=document.getElementById('email').value;
+    let phone=document.getElementById('phone').value;
+
+    let nameNode=document.createTextNode(name);
+    let emailNode=document.createTextNode(email);
+    let phoneNode=document.createTextNode(phone);
+    
+    li.append(nameNode,emailNode,phoneNode,);
+    li.appendChild(document.createElement("br"));
+    
+    let obj={
+        "name":name,
+        "email":email,
+        "phoneNumber":phone
+    };
+    obj_serialize=JSON.stringify(obj);
+    // console.log(obj_serialize);
+    localStorage.setItem("obj",obj_serialize);
+
+    let obj_deserialize=JSON.parse(localStorage.getItem("obj"));
+    console.log(obj_deserialize);
+ }
    
-   let myObj= {
-    name:nameInput,
-    email:emailInput,
-   };
-  // to serialize the input object
-   let myObj_serialized = JSON.stringify(myObj);
-//    console.log(myObj);
-   // storing the serialize value in local storage
-   localStorage.setItem('myObj',myObj_serialized);
-
-   // decerializing the serialized value so that we will get an object
-
-   let myObj_deserialized =JSON.parse(localStorage.getItem("myObj"));
-   console.log(myObj_deserialized);
-   
-}
